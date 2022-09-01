@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+    <head>
+        <title>Detail</title>
+    </head>
+    <body>
+        <section layout:fragment="myContent">
+            <table class="table">
+                <tr>
+                    <th scope="col">Id</th>
+                    <td th:text="${drawObject.rId}" />
+                </tr>
+                <tr>
+                    <th scope="col">Name</th>
+                    <td th:text="${drawObject.rName}" />
+                </tr>
+                <tr>
+                    <th scope="col">Address</th>
+                    <td th:text="${drawObject.rAddr}" />
+                </tr>
+                <tr>
+                    <th scope="col">Phone</th>
+                    <td th:text="${drawObject.rPhone}" />
+                </tr>
+                <tr>
+                    <th scope="col">Website</th>
+                    <td th:text="${drawObject.rWeb}" />
+                </tr>       
+                <tr>
+                    <td colspan="2">
+                        <a th:href="@{/update/{myId}(myId = ${drawObject.rId})}" class="btn btn-warning">Update</a> &nbsp; | &nbsp;  
+                        <a th:href="@{/delete/{myId}(myId = ${drawObject.rId})}" class="btn btn-danger">Delete</a> &nbsp; | &nbsp;  
+                        <a th:href="@{/list}" class="btn btn-primary">Back</a>
+                    </td>
+                </tr>                                         
+            </table>
+        </section>     
+    </body>
+</html>

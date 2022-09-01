@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+    <head>
+        <title>Lucky Draw</title>
+    </head>
+    <body>
+        <section layout:fragment="myContent">
+            <table class="table">
+                <tr>
+                    <th scope="col">Id</th>
+                    <td th:text="${drawObject.rId}" />
+                </tr>
+                <tr>
+                    <th scope="col">Name</th>
+                    <td th:text="${drawObject.rName}" />
+                </tr>
+                <tr>
+                    <th scope="col">Address</th>
+                    <td th:text="${drawObject.rAddr}" />
+                </tr>
+                <tr>
+                    <th scope="col">Phone</th>
+                    <td th:text="${drawObject.rPhone}" />
+                </tr>
+                <tr>
+                    <th scope="col">Website</th>
+                    <td th:text="${drawObject.rWeb}" />
+                </tr>                                                
+            </table>
+        </section>     
+    </body>
+</html>

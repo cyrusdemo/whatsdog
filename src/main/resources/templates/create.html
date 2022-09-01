@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}">
+    <head>
+        <title>Add Restaurant</title>
+    </head>
+    <body>
+        <section layout:fragment="myContent">
+            <form action="#" th:action="@{/create}" th:object="${rForm}" method="POST">
+                <div class="form-group">
+                    <label for="rName">Name</label>
+                    <input type="text" class="form-control" id="rName" placeholder="Restaurant Name" th:field="*{rName}">
+                    <p th:if="${#fields.hasErrors('rName')}" th:errorclass="text-danger" th:errors="*{rName}" />
+                </div>
+                <div class="form-group">
+                    <label for="rPhone">Phone Number</label>
+                    <input type="text" class="form-control" id="rPhone" placeholder="Phone Number" th:field="*{rPhone}">
+                    <p th:if="${#fields.hasErrors('rPhone')}" th:errorclass="text-danger" th:errors="*{rPhone}" />
+                </div>
+                <div class="form-group">
+                    <label for="rAddr">Address</label>
+                    <input type="text" class="form-control" id="rAddr" placeholder="Address" th:field="*{rAddr}">
+                    <p th:if="${#fields.hasErrors('rAddr')}" th:errorclass="text-danger" th:errors="*{rAddr}" />
+                </div>
+                <div class="form-group">
+                    <label for="rWeb">Website</label>
+                    <input type="text" class="form-control" id="rWeb" placeholder="Website url" th:field="*{rWeb}">
+                    <p th:if="${#fields.hasErrors('rWeb')}" th:errorclass="text-danger" th:errors="*{rWeb}" />
+                </div>                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>     
+    </body>
+</html>
