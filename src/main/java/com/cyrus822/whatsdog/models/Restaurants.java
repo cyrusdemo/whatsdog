@@ -18,6 +18,7 @@ public class Restaurants implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer rId;
 
     @Column(name = "name", nullable = false)

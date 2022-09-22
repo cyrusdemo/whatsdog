@@ -3,6 +3,8 @@ package com.cyrus822.whatsdog.controllers;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import com.cyrus822.whatsdog.models.Restaurants;
 import com.cyrus822.whatsdog.repos.RestaurantRepo;
 
@@ -20,6 +23,14 @@ public class RestaurantController {
 
     @Autowired
     private RestaurantRepo repo;
+
+    @GetMapping("/test")
+    @Transactional
+    public String test(ModelMap m, @RequestParam(name = "name") String name, @RequestParam(name = "addr") String addr){
+        List<Restaurants> all = repo.getRestaurantsJPA(name, addr);
+        m.addAttribute("allRest", all);
+        return "list";
+    }
 
     @GetMapping({
         "",
